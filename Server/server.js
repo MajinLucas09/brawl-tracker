@@ -16,7 +16,7 @@ const app = express();
 
 
 // Port du serveur
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 
 // Permettre de recevoir du JSON
