@@ -1,0 +1,2412 @@
+/* =========================================================
+   BRAWL TRACKER V2
+   STYLE PRINCIPAL
+   ========================================================= */
+
+:root {
+
+    --bg-main: #080d1d;
+    --bg-secondary: #0d1530;
+
+    --card: #111b38;
+    --card-light: #162348;
+
+    --blue: #168cff;
+    --blue-light: #5da9ff;
+    --blue-dark: #092b70;
+
+    --yellow: #ffd21c;
+    --yellow-dark: #dcae00;
+
+    --text: #ffffff;
+    --text-secondary: #aebbd8;
+    --text-muted: #7181a5;
+
+    --border: #294b91;
+    --border-light: #3867bd;
+
+    --green: #21df87;
+    --red: #ff5364;
+
+    --shadow:
+        0 12px 35px rgba(0, 0, 0, 0.45);
+
+    --radius: 18px;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at top,
+            #12275a 0%,
+            var(--bg-main) 45%
+        );
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: var(--border);
+
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--blue);
+}
+
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+.topbar {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding: 15px 30px;
+
+    background:
+        rgba(8, 13, 29, 0.94);
+
+    border-bottom:
+        1px solid rgba(56, 103, 189, 0.4);
+
+    backdrop-filter: blur(15px);
+}
+
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 23px;
+
+    font-weight: 900;
+
+    white-space: nowrap;
+}
+
+
+.logo-star {
+
+    color: var(--yellow);
+
+    font-size: 30px;
+
+    text-shadow:
+        0 0 15px rgba(255, 210, 28, 0.5);
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.main-nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    overflow-x: auto;
+}
+
+
+.nav-button {
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--text-secondary);
+
+    padding: 10px 14px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        0.2s ease;
+
+    white-space: nowrap;
+}
+
+
+.nav-button:hover {
+
+    background:
+        rgba(22, 140, 255, 0.12);
+
+    color: white;
+}
+
+
+.nav-button.active {
+
+    color: #111;
+
+    background: var(--yellow);
+
+    box-shadow:
+        0 5px 15px
+        rgba(255, 210, 28, 0.25);
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.container {
+
+    width: min(1200px, calc(100% - 40px));
+
+    margin: 35px auto 80px;
+}
+
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+
+.page-section {
+
+    display: none;
+
+    animation:
+        sectionAppear 0.25s ease;
+}
+
+
+.page-section.active {
+    display: block;
+}
+
+
+@keyframes sectionAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   PROFILE
+   ========================================================= */
+
+.profile-card {
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #152d65,
+            #111b38 55%,
+            #0c1530
+        );
+
+    border:
+        1px solid var(--border);
+
+    border-radius:
+        var(--radius);
+
+    box-shadow:
+        var(--shadow);
+
+    margin-bottom: 20px;
+}
+
+
+.profile-top {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 30px;
+}
+
+
+.avatar-container {
+
+    width: 105px;
+
+    height: 105px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--blue-dark)
+        );
+
+    border:
+        4px solid var(--yellow);
+
+    box-shadow:
+        0 0 25px
+        rgba(22, 140, 255, 0.35);
+}
+
+
+.player-avatar {
+
+    display: none;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    border-radius: 50%;
+}
+
+
+.avatar-fallback {
+
+    font-size: 48px;
+}
+
+
+.profile-main {
+
+    flex: 1;
+}
+
+
+.profile-main h1 {
+
+    font-size: 32px;
+
+    margin-bottom: 2px;
+}
+
+
+.profile-main p {
+
+    color: var(--text-secondary);
+
+    font-weight: 600;
+}
+
+
+.profile-main .club-name {
+
+    color: var(--yellow);
+
+    margin-top: 5px;
+}
+
+
+.profile-level {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 120px;
+
+    padding: 15px;
+
+    background:
+        rgba(0, 0, 0, 0.2);
+
+    border-radius: 14px;
+
+    border:
+        1px solid var(--border);
+}
+
+
+.profile-level span {
+
+    font-size: 10px;
+
+    color: var(--text-muted);
+
+    font-weight: 800;
+}
+
+
+.profile-level strong {
+
+    color: var(--yellow);
+
+    font-size: 30px;
+}
+
+
+/* =========================================================
+   PROFILE STATS
+   ========================================================= */
+
+.profile-stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, 1fr);
+
+    border-top:
+        1px solid var(--border);
+}
+
+
+.profile-stat {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 125px;
+
+    padding: 15px;
+
+    border-right:
+        1px solid var(--border);
+
+    transition:
+        background 0.2s ease;
+}
+
+
+.profile-stat:last-child {
+    border-right: none;
+}
+
+
+.profile-stat:hover {
+
+    background:
+        rgba(22, 140, 255, 0.07);
+}
+
+
+.profile-stat span {
+
+    font-size: 22px;
+
+    margin-bottom: 5px;
+}
+
+
+.profile-stat strong {
+
+    font-size: 24px;
+
+    font-weight: 900;
+}
+
+
+.profile-stat small {
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    text-align: center;
+}
+
+
+.profile-stat.highlight strong {
+    color: var(--yellow);
+}
+
+
+/* =========================================================
+   GOAL CARD
+   ========================================================= */
+
+.goal-card {
+
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 25px;
+
+    margin-bottom: 20px;
+
+    box-shadow: var(--shadow);
+}
+
+
+.section-title-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+
+.section-title-row h2 {
+
+    font-size: 21px;
+
+    margin-bottom: 3px;
+}
+
+
+.section-title-row p {
+
+    color: var(--text-muted);
+
+    font-size: 13px;
+}
+
+
+.section-title-row > strong {
+
+    color: var(--yellow);
+
+    font-size: 30px;
+}
+
+
+.goal-numbers {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+
+.goal-numbers div {
+
+    padding: 15px;
+
+    background: var(--bg-secondary);
+
+    border-radius: 12px;
+}
+
+
+.goal-numbers span {
+
+    display: block;
+
+    color: var(--text-muted);
+
+    font-size: 12px;
+
+    margin-bottom: 3px;
+}
+
+
+.goal-numbers strong {
+
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   PROGRESS BAR
+   ========================================================= */
+
+.progress-bar {
+
+    width: 100%;
+
+    height: 14px;
+
+    overflow: hidden;
+
+    background:
+        #071027;
+
+    border-radius: 20px;
+
+    border:
+        1px solid var(--border);
+}
+
+
+.progress-fill {
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue),
+            var(--yellow)
+        );
+
+    border-radius: 20px;
+
+    transition:
+        width 0.5s ease;
+}
+
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+.dashboard-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.mini-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 22px;
+
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+}
+
+
+.mini-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background:
+        var(--bg-secondary);
+
+    font-size: 23px;
+}
+
+
+.mini-card small {
+
+    display: block;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+}
+
+
+.mini-card strong {
+
+    display: block;
+
+    font-size: 22px;
+
+    margin-top: 2px;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+   ========================================================= */
+
+.page-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+
+.page-header h2 {
+
+    font-size: 28px;
+}
+
+
+.page-header p {
+
+    color: var(--text-muted);
+
+    margin-top: 3px;
+}
+
+
+.brawler-count {
+
+    padding: 10px 16px;
+
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 12px;
+
+    color: var(--text-secondary);
+}
+
+
+.brawler-count strong {
+
+    color: var(--yellow);
+
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   BRAWLER CONTROLS
+   ========================================================= */
+
+.brawler-controls {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+
+.brawler-controls input,
+.brawler-controls select {
+
+    height: 48px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: var(--card);
+
+    color: white;
+
+    padding: 0 15px;
+
+    outline: none;
+}
+
+
+.brawler-controls input {
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.brawler-controls select {
+
+    width: 180px;
+}
+
+
+.brawler-controls input:focus,
+.brawler-controls select:focus {
+
+    border-color:
+        var(--blue);
+}
+
+
+/* =========================================================
+   BRAWLERS GRID
+   ========================================================= */
+
+.brawlers-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+
+.brawler-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--card-light),
+            var(--card)
+        );
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 15px;
+
+    padding: 18px;
+
+    transition:
+        0.2s ease;
+}
+
+
+.brawler-card:hover {
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        var(--blue);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+.brawler-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 15px;
+}
+
+
+.brawler-image {
+
+    width: 58px;
+
+    height: 58px;
+
+    border-radius: 13px;
+
+    object-fit: contain;
+
+    background:
+        var(--bg-secondary);
+
+    border:
+        1px solid var(--border);
+}
+
+
+.brawler-fallback {
+
+    width: 58px;
+
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background:
+        var(--bg-secondary);
+
+    font-size: 28px;
+}
+
+
+.brawler-name {
+
+    font-weight: 900;
+
+    font-size: 16px;
+}
+
+
+.brawler-rank {
+
+    color: var(--text-muted);
+
+    font-size: 12px;
+
+    margin-top: 2px;
+}
+
+
+.brawler-stats {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 8px;
+}
+
+
+.brawler-stat {
+
+    padding: 9px;
+
+    background:
+        rgba(0, 0, 0, 0.18);
+
+    border-radius: 9px;
+}
+
+
+.brawler-stat span {
+
+    display: block;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+}
+
+
+.brawler-stat strong {
+
+    display: block;
+
+    font-size: 15px;
+}
+
+
+.brawler-trophies {
+
+    color: var(--yellow);
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty-state {
+
+    grid-column:
+        1 / -1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 220px;
+
+    padding: 30px;
+
+    color: var(--text-muted);
+
+    background: var(--card);
+
+    border:
+        1px dashed var(--border);
+
+    border-radius: var(--radius);
+
+    text-align: center;
+}
+
+
+.empty-state span {
+
+    font-size: 45px;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   HISTORY
+   ========================================================= */
+
+.history-stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+
+.history-stat {
+
+    padding: 20px;
+
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    text-align: center;
+}
+
+
+.history-stat span {
+
+    display: block;
+
+    font-size: 25px;
+
+    margin-bottom: 5px;
+}
+
+
+.history-stat small {
+
+    display: block;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+}
+
+
+.history-stat strong {
+
+    display: block;
+
+    font-size: 25px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   CHART
+   ========================================================= */
+
+.chart-card,
+.history-table-card {
+
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 25px;
+
+    box-shadow: var(--shadow);
+
+    margin-bottom: 20px;
+}
+
+
+.chart-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 20px;
+}
+
+
+.chart-header h2 {
+
+    font-size: 20px;
+}
+
+
+.chart-header p {
+
+    color: var(--text-muted);
+
+    font-size: 12px;
+}
+
+
+.chart {
+
+    width: 100%;
+
+    min-height: 350px;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    background:
+        #09122a;
+
+    border:
+        1px solid var(--border);
+}
+
+
+.chart svg {
+
+    width: 100%;
+
+    height: 350px;
+
+    display: block;
+}
+
+
+.empty-chart {
+
+    min-height: 350px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--text-muted);
+}
+
+
+.chart-legend {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    margin-top: 15px;
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+}
+
+
+.chart-legend span {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+}
+
+
+.chart-legend i {
+
+    width: 25px;
+
+    height: 3px;
+
+    display: inline-block;
+
+    border-radius: 5px;
+}
+
+
+.legend-real {
+    background: var(--yellow);
+}
+
+
+.legend-theoretical {
+
+    background:
+        var(--blue);
+
+    border:
+        1px dashed var(--blue-light);
+}
+
+
+/* =========================================================
+   HISTORY LIST
+   ========================================================= */
+
+.history-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-top: 15px;
+}
+
+
+.history-row {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr 1fr;
+
+    gap: 10px;
+
+    align-items: center;
+
+    padding: 13px 15px;
+
+    background:
+        var(--bg-secondary);
+
+    border-radius: 10px;
+}
+
+
+.history-row span {
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+}
+
+
+.history-row strong {
+
+    text-align: center;
+
+    font-size: 14px;
+}
+
+
+.history-positive {
+    color: var(--green);
+}
+
+
+.history-negative {
+    color: var(--red);
+}
+
+
+/* =========================================================
+   RANKED
+   ========================================================= */
+
+.coming-soon {
+
+    padding: 8px 13px;
+
+    border-radius: 8px;
+
+    background:
+        rgba(255, 210, 28, 0.12);
+
+    color: var(--yellow);
+
+    border:
+        1px solid
+        rgba(255, 210, 28, 0.3);
+
+    font-size: 11px;
+
+    font-weight: 900;
+}
+
+
+.ranked-hero {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 30px;
+
+    margin-bottom: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1b3270,
+            var(--card)
+        );
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+}
+
+
+.ranked-icon {
+
+    width: 80px;
+
+    height: 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 210, 28, 0.1);
+
+    font-size: 42px;
+}
+
+
+.ranked-hero h2 {
+    margin-bottom: 5px;
+}
+
+
+.ranked-hero p {
+    color: var(--text-secondary);
+}
+
+
+.ranked-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+
+.rank-card {
+
+    padding: 25px;
+
+    text-align: center;
+
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+}
+
+
+.rank-card span {
+
+    display: block;
+
+    font-size: 27px;
+
+    margin-bottom: 8px;
+}
+
+
+.rank-card small {
+
+    display: block;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+}
+
+
+.rank-card strong {
+
+    display: block;
+
+    color: var(--yellow);
+
+    font-size: 24px;
+
+    margin-top: 5px;
+}
+
+
+.info-box {
+
+    padding: 20px;
+
+    background:
+        rgba(22, 140, 255, 0.08);
+
+    border:
+        1px solid
+        rgba(22, 140, 255, 0.3);
+
+    border-radius: 14px;
+}
+
+
+.info-box strong {
+
+    display: block;
+
+    margin-bottom: 5px;
+}
+
+
+.info-box p {
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   RECORDS
+   ========================================================= */
+
+.records-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+
+.record-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 23px;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--card-light),
+            var(--card)
+        );
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    transition:
+        0.2s ease;
+}
+
+
+.record-card:hover {
+
+    border-color:
+        var(--yellow);
+
+    transform:
+        translateY(-2px);
+}
+
+
+.record-icon {
+
+    width: 52px;
+
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background:
+        var(--bg-secondary);
+
+    border-radius: 14px;
+
+    font-size: 25px;
+}
+
+
+.record-card small {
+
+    display: block;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+}
+
+
+.record-card strong {
+
+    display: block;
+
+    color: var(--yellow);
+
+    font-size: 23px;
+
+    margin-top: 2px;
+}
+
+
+/* =========================================================
+   CHALLENGE
+   ========================================================= */
+
+.challenge-layout {
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr 1fr;
+
+    gap: 20px;
+}
+
+
+.challenge-form-card,
+.challenge-info-card {
+
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 25px;
+
+    box-shadow: var(--shadow);
+}
+
+
+.challenge-form-card h2,
+.challenge-info-card h2 {
+
+    margin-bottom: 20px;
+}
+
+
+.input-group {
+
+    margin-bottom: 15px;
+}
+
+
+.input-group label {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.input-group input {
+
+    width: 100%;
+
+    height: 46px;
+
+    padding: 0 14px;
+
+    color: white;
+
+    background:
+        var(--bg-secondary);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+
+.input-group input:focus {
+
+    border-color:
+        var(--blue);
+
+    box-shadow:
+        0 0 0 2px
+        rgba(22, 140, 255, 0.12);
+}
+
+
+.input-group input[readonly] {
+
+    opacity: 0.7;
+}
+
+
+.date-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 15px;
+}
+
+
+.challenge-button,
+.update-button,
+.danger-button {
+
+    width: 100%;
+
+    min-height: 46px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition:
+        0.2s ease;
+}
+
+
+.challenge-button {
+
+    color: #101010;
+
+    background: var(--yellow);
+
+    margin-top: 5px;
+}
+
+
+.challenge-button:hover {
+
+    background:
+        #ffe45f;
+
+    transform:
+        translateY(-1px);
+}
+
+
+.update-button {
+
+    color: white;
+
+    background:
+        var(--blue);
+
+    margin-top: 10px;
+}
+
+
+.update-button:hover {
+
+    background:
+        #319aff;
+}
+
+
+.danger-button {
+
+    width: auto;
+
+    padding: 9px 13px;
+
+    color: white;
+
+    background:
+        rgba(255, 83, 100, 0.12);
+
+    border:
+        1px solid
+        rgba(255, 83, 100, 0.3);
+
+    font-size: 11px;
+}
+
+
+.danger-button:hover {
+
+    background:
+        rgba(255, 83, 100, 0.2);
+}
+
+
+.challenge-result {
+
+    margin-top: 20px;
+}
+
+
+.challenge-box {
+
+    padding: 18px;
+
+    background:
+        var(--bg-secondary);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 12px;
+}
+
+
+.challenge-box h3 {
+
+    margin-bottom: 12px;
+}
+
+
+.challenge-line {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 7px 0;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.05);
+}
+
+
+.challenge-line:last-child {
+    border-bottom: none;
+}
+
+
+.challenge-line span {
+    color: var(--text-secondary);
+}
+
+
+.challenge-line strong {
+    color: var(--yellow);
+}
+
+
+.challenge-stat-row {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 17px 0;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.06);
+}
+
+
+.challenge-stat-row:last-child {
+    border-bottom: none;
+}
+
+
+.challenge-stat-row span {
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+}
+
+
+.challenge-stat-row strong {
+
+    color: var(--yellow);
+
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.ahead {
+
+    color: var(--green) !important;
+}
+
+
+.behind {
+
+    color: var(--red) !important;
+}
+
+
+.on-track {
+
+    color: var(--yellow) !important;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.loading-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 999;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(3, 7, 18, 0.8);
+
+    backdrop-filter:
+        blur(5px);
+}
+
+
+.loading-overlay.active {
+    display: flex;
+}
+
+
+.loading-box {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 30px;
+
+    min-width: 250px;
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 18px;
+
+    box-shadow: var(--shadow);
+
+    text-align: center;
+}
+
+
+.loading-box strong {
+    font-size: 17px;
+}
+
+
+.loading-box span {
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+}
+
+
+.spinner {
+
+    width: 40px;
+
+    height: 40px;
+
+    margin-bottom: 5px;
+
+    border:
+        4px solid
+        rgba(255,255,255,0.1);
+
+    border-top-color:
+        var(--yellow);
+
+    border-radius: 50%;
+
+    animation:
+        spin 0.8s linear infinite;
+}
+
+
+@keyframes spin {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.toast {
+
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    z-index: 1000;
+
+    max-width: 350px;
+
+    padding: 14px 18px;
+
+    background:
+        var(--card-light);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 12px;
+
+    box-shadow: var(--shadow);
+
+    color: white;
+
+    font-size: 13px;
+
+    opacity: 0;
+
+    transform:
+        translateY(15px);
+
+    pointer-events: none;
+
+    transition:
+        0.25s ease;
+}
+
+
+.toast.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .topbar {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 10px;
+    }
+
+    .logo {
+        justify-content: center;
+    }
+
+    .main-nav {
+        justify-content: center;
+    }
+
+    .profile-stats {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    .profile-stat:nth-child(3) {
+        border-right: none;
+    }
+
+    .brawlers-grid {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    .ranked-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .challenge-layout {
+
+        grid-template-columns:
+            1fr;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .topbar {
+
+        padding: 12px;
+
+        position: relative;
+    }
+
+
+    .logo {
+
+        font-size: 20px;
+    }
+
+
+    .main-nav {
+
+        justify-content: flex-start;
+
+        padding-bottom: 2px;
+    }
+
+
+    .nav-button {
+
+        padding: 9px 11px;
+
+        font-size: 12px;
+    }
+
+
+    .container {
+
+        width:
+            calc(100% - 20px);
+
+        margin-top: 20px;
+    }
+
+
+    .profile-top {
+
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 25px 15px;
+    }
+
+
+    .profile-main h1 {
+
+        font-size: 26px;
+    }
+
+
+    .profile-level {
+
+        width: 100%;
+    }
+
+
+    .profile-stats {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    .profile-stat {
+
+        border-right:
+            1px solid var(--border);
+
+        border-bottom:
+            1px solid var(--border);
+    }
+
+
+    .profile-stat:nth-child(even) {
+        border-right: none;
+    }
+
+
+    .profile-stat:nth-last-child(-n+2) {
+        border-bottom: none;
+    }
+
+
+    .goal-numbers {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .dashboard-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .page-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .brawler-controls {
+
+        flex-direction: column;
+    }
+
+
+    .brawler-controls select {
+
+        width: 100%;
+    }
+
+
+    .brawlers-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 10px;
+    }
+
+
+    .brawler-card {
+
+        padding: 12px;
+    }
+
+
+    .brawler-header {
+
+        gap: 8px;
+    }
+
+
+    .brawler-image,
+    .brawler-fallback {
+
+        width: 45px;
+
+        height: 45px;
+    }
+
+
+    .brawler-name {
+
+        font-size: 13px;
+    }
+
+
+    .history-stats {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .chart-card,
+    .history-table-card,
+    .challenge-form-card,
+    .challenge-info-card {
+
+        padding: 18px;
+    }
+
+
+    .chart {
+
+        min-height: 280px;
+    }
+
+
+    .chart svg {
+
+        height: 280px;
+    }
+
+
+    .empty-chart {
+
+        min-height: 280px;
+    }
+
+
+    .chart-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .records-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .ranked-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .ranked-hero {
+
+        padding: 20px;
+    }
+
+
+    .date-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .history-row {
+
+        grid-template-columns:
+            1fr 1fr;
+
+        font-size: 12px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+    .nav-button span {
+        display: none;
+    }
+
+
+    .nav-button {
+
+        font-size: 18px;
+
+        padding:
+            9px 12px;
+    }
+
+
+    .brawlers-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .ranked-grid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .profile-stats {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .toast {
+
+        left: 15px;
+
+        right: 15px;
+
+        bottom: 15px;
+
+        max-width: none;
+    }
+
+}

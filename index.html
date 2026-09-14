@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Brawl Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="topbar">
+
+        <div class="logo">
+            <span class="logo-star">★</span>
+            <span>Brawl Tracker</span>
+        </div>
+
+        <nav class="main-nav">
+
+            <button class="nav-button active" data-section="profil">
+                🏠 <span>Profil</span>
+            </button>
+
+            <button class="nav-button" data-section="brawlers">
+                👊 <span>Brawlers</span>
+            </button>
+
+            <button class="nav-button" data-section="historique">
+                📊 <span>Historique</span>
+            </button>
+
+            <button class="nav-button" data-section="ranked">
+                🏆 <span>Ranked</span>
+            </button>
+
+            <button class="nav-button" data-section="records">
+                🥇 <span>Records</span>
+            </button>
+
+            <button class="nav-button" data-section="challenge">
+                🎯 <span>Challenge</span>
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <main class="container">
+
+        <!-- =================================================
+             PROFIL
+             ================================================= -->
+
+        <section id="profil" class="page-section active">
+
+            <div class="profile-card">
+
+                <div class="profile-top">
+
+                    <div class="avatar-container">
+
+                        <img
+                            id="playerAvatar"
+                            class="player-avatar"
+                            src=""
+                            alt="Icône du joueur"
+                        >
+
+                        <div id="avatarFallback" class="avatar-fallback">
+                            👤
+                        </div>
+
+                    </div>
+
+                    <div class="profile-main">
+
+                        <h1 id="playerName">
+                            Mon profil
+                        </h1>
+
+                        <p id="playerTagDisplay">
+                            #XXXXXXXX
+                        </p>
+
+                        <p id="playerClub" class="club-name">
+                            Aucun club
+                        </p>
+
+                    </div>
+
+                    <div class="profile-level">
+
+                        <span>NIVEAU XP</span>
+
+                        <strong id="profileExpLevel">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-stats">
+
+                    <div class="profile-stat highlight">
+
+                        <span>🏆</span>
+
+                        <strong id="profileTrophies">
+                            0
+                        </strong>
+
+                        <small>Trophées</small>
+
+                    </div>
+
+
+                    <div class="profile-stat">
+
+                        <span>🏆</span>
+
+                        <strong id="profileHighestTrophies">
+                            0
+                        </strong>
+
+                        <small>Record</small>
+
+                    </div>
+
+
+                    <div class="profile-stat">
+
+                        <span>👊</span>
+
+                        <strong id="profileBrawlers">
+                            0
+                        </strong>
+
+                        <small>Brawlers</small>
+
+                    </div>
+
+
+                    <div class="profile-stat">
+
+                        <span>⚔️</span>
+
+                        <strong id="profile3v3">
+                            0
+                        </strong>
+
+                        <small>Victoires 3v3</small>
+
+                    </div>
+
+
+                    <div class="profile-stat">
+
+                        <span>🥇</span>
+
+                        <strong id="profileSolo">
+                            0
+                        </strong>
+
+                        <small>Victoires Solo</small>
+
+                    </div>
+
+
+                    <div class="profile-stat">
+
+                        <span>👥</span>
+
+                        <strong id="profileDuo">
+                            0
+                        </strong>
+
+                        <small>Victoires Duo</small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- OBJECTIF -->
+
+            <div class="goal-card">
+
+                <div class="section-title-row">
+
+                    <div>
+                        <h2>🎯 Objectif actuel</h2>
+                        <p>Ta progression vers ton objectif de trophées</p>
+                    </div>
+
+                    <strong id="goalPercentage">
+                        0%
+                    </strong>
+
+                </div>
+
+                <div class="goal-numbers">
+
+                    <div>
+                        <span>Actuellement</span>
+                        <strong id="goalCurrent">
+                            0
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Objectif</span>
+                        <strong id="goalTarget">
+                            Aucun
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Restant</span>
+                        <strong id="goalRemaining">
+                            -
+                        </strong>
+                    </div>
+
+                </div>
+
+                <div class="progress-bar">
+                    <div
+                        id="goalProgressBar"
+                        class="progress-fill"
+                        style="width: 0%;">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- RÉSUMÉ -->
+
+            <div class="dashboard-grid">
+
+                <div class="mini-card">
+
+                    <span class="mini-icon">📈</span>
+
+                    <div>
+                        <small>Progression totale</small>
+                        <strong id="gainedTrophies">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="mini-card">
+
+                    <span class="mini-icon">🔥</span>
+
+                    <div>
+                        <small>Meilleur jour</small>
+                        <strong id="bestDay">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="mini-card">
+
+                    <span class="mini-icon">📅</span>
+
+                    <div>
+                        <small>Jours suivis</small>
+                        <strong id="trackedDays">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             BRAWLERS
+             ================================================= -->
+
+        <section id="brawlers" class="page-section">
+
+            <div class="page-header">
+
+                <div>
+                    <h2>👊 Mes Brawlers</h2>
+                    <p>Statistiques de chacun de tes brawlers</p>
+                </div>
+
+                <div class="brawler-count">
+                    <strong id="brawlerCount">
+                        0
+                    </strong>
+                    brawlers
+                </div>
+
+            </div>
+
+
+            <div class="brawler-controls">
+
+                <input
+                    type="text"
+                    id="brawlerSearch"
+                    placeholder="🔎 Rechercher un brawler..."
+                >
+
+                <select id="brawlerSort">
+
+                    <option value="trophies">
+                        Trophées
+                    </option>
+
+                    <option value="level">
+                        Niveau
+                    </option>
+
+                    <option value="rank">
+                        Rang
+                    </option>
+
+                    <option value="name">
+                        Nom
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div
+                id="brawlersGrid"
+                class="brawlers-grid">
+
+                <div class="empty-state">
+                    <span>👊</span>
+                    <p>Entre ton Player Tag pour afficher tes brawlers.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             HISTORIQUE
+             ================================================= -->
+
+        <section id="historique" class="page-section">
+
+            <div class="page-header">
+
+                <div>
+                    <h2>📊 Historique</h2>
+                    <p>Évolution de tes trophées</p>
+                </div>
+
+            </div>
+
+
+            <div class="history-stats">
+
+                <div class="history-stat">
+                    <span>🏆</span>
+                    <small>Trophées actuels</small>
+                    <strong id="historyCurrent">
+                        0
+                    </strong>
+                </div>
+
+                <div class="history-stat">
+                    <span>📈</span>
+                    <small>Gain total</small>
+                    <strong id="historyGain">
+                        0
+                    </strong>
+                </div>
+
+                <div class="history-stat">
+                    <span>🔥</span>
+                    <small>Meilleur gain</small>
+                    <strong id="historyBest">
+                        0
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="chart-card">
+
+                <div class="chart-header">
+
+                    <div>
+                        <h2>📈 Progression des trophées</h2>
+                        <p>Historique enregistré sur cet appareil</p>
+                    </div>
+
+                    <button
+                        id="clearHistoryButton"
+                        class="danger-button">
+                        🗑️ Effacer
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="trophyChart"
+                    class="chart">
+
+                    <div class="empty-chart">
+                        Aucun historique pour le moment.
+                    </div>
+
+                </div>
+
+
+                <div class="chart-legend">
+
+                    <span>
+                        <i class="legend-real"></i>
+                        🏆 Réel
+                    </span>
+
+                    <span>
+                        <i class="legend-theoretical"></i>
+                        🎯 Théorique
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="history-table-card">
+
+                <h2>📅 Dernières données</h2>
+
+                <div
+                    id="historyList"
+                    class="history-list">
+
+                    <div class="empty-state">
+                        Aucun historique enregistré.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             RANKED
+             ================================================= -->
+
+        <section id="ranked" class="page-section">
+
+            <div class="page-header">
+
+                <div>
+                    <h2>🏆 Ranked</h2>
+                    <p>Suivi de ta progression en classé</p>
+                </div>
+
+                <div class="coming-soon">
+                    BIENTÔT
+                </div>
+
+            </div>
+
+
+            <div class="ranked-hero">
+
+                <div class="ranked-icon">
+                    🏆
+                </div>
+
+                <div>
+
+                    <h2>
+                        Statistiques Ranked
+                    </h2>
+
+                    <p>
+                        Cette section est prête pour accueillir
+                        tes statistiques de Ranked.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="ranked-grid">
+
+                <div class="rank-card">
+
+                    <span>🏆</span>
+
+                    <small>Rang actuel</small>
+
+                    <strong>
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="rank-card">
+
+                    <span>📈</span>
+
+                    <small>Progression saison</small>
+
+                    <strong>
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="rank-card">
+
+                    <span>🥇</span>
+
+                    <small>Meilleur rang</small>
+
+                    <strong>
+                        —
+                    </strong>
+
+                </div>
+
+
+                <div class="rank-card">
+
+                    <span>📅</span>
+
+                    <small>Dernière saison</small>
+
+                    <strong>
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong>ℹ️ Pourquoi ces données sont vides ?</strong>
+
+                <p>
+                    L'API officielle utilisée actuellement pour le profil
+                    ne fournit pas toutes les statistiques Ranked détaillées.
+                    Cette section pourra être connectée à une source
+                    supplémentaire plus tard.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             RECORDS
+             ================================================= -->
+
+        <section id="records" class="page-section">
+
+            <div class="page-header">
+
+                <div>
+                    <h2>🥇 Records</h2>
+                    <p>Tes meilleures performances</p>
+                </div>
+
+            </div>
+
+
+            <div class="records-grid">
+
+                <div class="record-card">
+
+                    <div class="record-icon">
+                        🏆
+                    </div>
+
+                    <div>
+                        <small>Record de trophées</small>
+                        <strong id="recordTrophies">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="record-card">
+
+                    <div class="record-icon">
+                        ⚔️
+                    </div>
+
+                    <div>
+                        <small>Victoires 3v3</small>
+                        <strong id="record3v3">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="record-card">
+
+                    <div class="record-icon">
+                        🥇
+                    </div>
+
+                    <div>
+                        <small>Victoires Solo</small>
+                        <strong id="recordSolo">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="record-card">
+
+                    <div class="record-icon">
+                        👥
+                    </div>
+
+                    <div>
+                        <small>Victoires Duo</small>
+                        <strong id="recordDuo">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="record-card">
+
+                    <div class="record-icon">
+                        🤖
+                    </div>
+
+                    <div>
+                        <small>Meilleur Robo Rumble</small>
+                        <strong id="recordRobo">
+                            —
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="record-card">
+
+                    <div class="record-icon">
+                        ⭐
+                    </div>
+
+                    <div>
+                        <small>Meilleur Big Brawler</small>
+                        <strong id="recordBigBrawler">
+                            —
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CHALLENGE
+             ================================================= -->
+
+        <section id="challenge" class="page-section">
+
+            <div class="page-header">
+
+                <div>
+                    <h2>🎯 Challenge</h2>
+                    <p>Fixe-toi un objectif de trophées</p>
+                </div>
+
+            </div>
+
+
+            <div class="challenge-layout">
+
+                <div class="challenge-form-card">
+
+                    <h2>🚀 Nouveau challenge</h2>
+
+                    <div class="input-group">
+
+                        <label for="playerTag">
+                            Player Tag
+                        </label>
+
+                        <input
+                            type="text"
+                            id="playerTag"
+                            placeholder="#ABC123"
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="currentTrophies">
+                            Trophées actuels
+                        </label>
+
+                        <input
+                            type="number"
+                            id="currentTrophies"
+                            value="0"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="targetTrophies">
+                            Objectif de trophées
+                        </label>
+
+                        <input
+                            type="number"
+                            id="targetTrophies"
+                            placeholder="Ex : 50000"
+                        >
+
+                    </div>
+
+
+                    <div class="date-grid">
+
+                        <div class="input-group">
+
+                            <label for="startDate">
+                                Date de début
+                            </label>
+
+                            <input
+                                type="date"
+                                id="startDate"
+                            >
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label for="endDate">
+                                Date de fin
+                            </label>
+
+                            <input
+                                type="date"
+                                id="endDate"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        id="calculateChallengeButton"
+                        class="challenge-button">
+
+                        🚀 Lancer le challenge
+
+                    </button>
+
+
+                    <button
+                        id="updateButton"
+                        class="update-button">
+
+                        🏆 Mettre à jour mes trophées
+
+                    </button>
+
+
+                    <div
+                        id="challengeResult"
+                        class="challenge-result">
+                    </div>
+
+                </div>
+
+
+                <div class="challenge-info-card">
+
+                    <h2>📊 Statistiques</h2>
+
+                    <div class="challenge-stat-row">
+
+                        <span>🏆 Trophées gagnés</span>
+
+                        <strong id="challengeGained">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="challenge-stat-row">
+
+                        <span>📈 Objectif quotidien</span>
+
+                        <strong id="challengeDaily">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="challenge-stat-row">
+
+                        <span>📅 Jours restants</span>
+
+                        <strong id="challengeDays">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="challenge-stat-row">
+
+                        <span>🎯 Progression</span>
+
+                        <strong id="challengeProgress">
+                            0%
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         LOADING
+         ===================================================== -->
+
+    <div
+        id="loadingOverlay"
+        class="loading-overlay">
+
+        <div class="loading-box">
+
+            <div class="spinner"></div>
+
+            <strong>
+                Chargement...
+            </strong>
+
+            <span>
+                Récupération des données Brawl Stars
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         TOAST
+         ===================================================== -->
+
+    <div
+        id="toast"
+        class="toast">
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
